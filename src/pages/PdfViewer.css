@@ -1,0 +1,61 @@
+.box {
+  padding: 20px;
+  text-align: center;
+}
+
+.Document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 600px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  border: 4px double white;
+}
+
+.react-pdf__Page {
+  margin-bottom: 20px;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) ; */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.941) ;
+}
+
+
+.imgANDtitle{
+  position: relative;
+  right: 50px;
+}
+.imgANDtitle img{
+  border: 2px solid white;
+  transition: 0.2s;
+
+}
+.imgANDtitle img:hover{
+  border: 2px solid gold;
+
+}
+
+.home button{
+  border: 2px solid white;
+  margin-top: 6px;
+  cursor: pointer;
+  padding: 4px;
+background-color: rgb(144, 141, 141);
+
+
+}
+
+.home h2 {
+  border: 2px solid white;
+  padding-block: 8px;
+  margin-bottom: 28px;
+}
+
+.home button:hover{
+background-color: rgb(123, 119, 119);
+
+}
+
+.PDFANDIMAG{
+  display: flex;
+}
