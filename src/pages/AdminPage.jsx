@@ -20,7 +20,7 @@ function AdminPage() {
     formData.append("category", category);
 
     try {
-      const res = await axios.post("https://vercel-backend-ggdk.onrender.com/upload-files", formData, {
+      const res = await axios.post("https://vercel-backend-production-598f.up.railway.app/upload-files", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

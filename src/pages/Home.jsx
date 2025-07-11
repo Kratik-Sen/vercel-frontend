@@ -9,7 +9,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://vercel-backend-ggdk.onrender.com/get-files").then((res) => {
+    axios.get("https://vercel-backend-production-598f.up.railway.app/get-files").then((res) => {
       setBooks(res.data.data);
           // console.log("Books fetched:", res.data.data);
 
