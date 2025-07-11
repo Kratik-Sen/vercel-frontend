@@ -17,12 +17,12 @@ const Nav = () => {
         </div>
         <div className={`nav-links ${isOpen ? "show" : ""}`}>
           <Link to="/">Home</Link>
-          <Link to="/admin">admin</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/blog">Blog</Link>
+          <Link to="/services">About</Link>
+          <Link to="/admin">Add Book</Link>
+          {/* <Link to="/blog">Blog</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/faq">FAQ</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/faq">FAQ</Link> */}
+          {/* <Link to="/login">Login</Link> */}
           <Link to="/signup">Signup</Link>
         </div>
       </div>

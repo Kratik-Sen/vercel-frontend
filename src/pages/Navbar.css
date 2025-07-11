@@ -50,11 +50,9 @@
   color: rgb(207, 78, 207);
 }
 
-.hamburger {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+ .hamburger {
+    
+    display: none;  }
 
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -73,8 +71,25 @@
     display: flex;
   }
 
-  .hamburger {
-    
-    display: block;  }
+ 
+
+    .hamburger {
+text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+}
+
+.nav-links{
+  border: 2px solid white;
+}
+
+.nav-links a{
+  display: block;
+  background-color: gray;
+  padding: 6px 12px;
+  border: 2px solid black;
+  margin-bottom: 6px;
+}
 }
 

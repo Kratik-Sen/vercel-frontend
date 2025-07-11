@@ -1,14 +1,24 @@
+*::-webkit-scrollbar {
+  width: 0.1px;
+}
+
 .home {
   padding-inline: 50px;
   padding-bottom: 18px;
+  overflow: hidden;
 }
 
-.home-container{
+
+/* Make container scrollable vertically */
+.home-container {
   display: flex;
-  margin-top: 50px;
+  margin-top: 28px;
+  max-height: calc(100vh - 120px); /* Adjust based on marquee height */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.home marquee {
+.topmarquee {
   padding-inline: 50px;
   font-size: 28px;
   margin-top: 18px;
@@ -16,82 +26,121 @@
   height: 60px;
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: red double 4px;
+  box-shadow: 0px 0px 25px 6px #6ec1e4;
+margin-top: 27px;
 }
 
-/* Grid to hold book cards */
+
+
+/* Book grid stays card-like and responsive */
 .book-grid {
-  min-width: 77%;
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  height: fit-content;
   border: white dotted 3px;
-  margin-right: 2px; 
-   padding-left: 8px;
+  margin-right: 4px;
+  padding-inline: 8px;
   padding-block: 12px;
-
+  justify-content: flex-start;
+  width: 100%;        /* takes full space available */
+  max-width: 100%;
 }
 
-.topmarquee{
-  border: red double 4px;
-  box-shadow: 0px 0px 25px 6px #6ec1e4;
 
-}
-.cate-box{
-  min-width: 23%;
-  border: green double 4px;
-  margin-left: 2px;
- 
-
-}
 .cate-box h2{
-  width: 100%;
-  text-align: center;
-  min-width: 25%;
- animation:blinkingText 0.6s infinite;
- margin: 0;
- padding: 0;
- border: 1px solid black;
-}
 
+    animation:blinkingText 0.6s infinite;
+
+}
 @keyframes blinkingText{
 
-    40%{     color: #f95e68;    }
+    40%{     color: #f95e68; }
 
     60%{    color: #5BF80C; }
 
-    99%{    color:#f95e68;  }
+    99%{    color:#f95e68;  }   
 
-     
-
-} 
-.cate-box marquee{
-  /* border-top: black solid 1px;
-  border-bottom: black solid 2px; */
-  border-top: white solid 1px;
-  border-bottom: white solid 2px;
-  margin-top: -28px;
-  /* border when dark */
-  height: 340px;
-  padding: 8px;
 }
 
-/* Individual book card */
+/* ✅ Desktop layout after 1024px: 4 cards, 77% + 23% width split */
+@media (min-width: 1025px) {
+  .home-container {
+    flex-direction: row;
+  }
+
+  .book-grid {
+    width: 77%;
+    justify-content: flex-start;
+  }
+
+  .cate-box {
+    width: 23%;
+    display: block;
+  }
+}
+
+/* ✅ Tablet (2 cards per row) and mobile (1 card) */
+@media (max-width: 1024px) {
+  .home-container {
+    flex-direction: column;
+    max-height: none;
+    overflow-y: unset;
+  }
+
+  .book-grid {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cate-box {
+    display: none;
+  }
+}
+
+
+
+/* Category Box - fixed/sticky look */
+.cate-box {
+  position: sticky;
+  top: 0.1px;
+  min-height: 380px;
+  overflow-y: auto;
+  min-width: 22%;
+  border: green double 4px;
+  margin-left: 2px;
+  background-color: #1c1c1c;
+  z-index: 1;
+}
+
+
+/* Optional scrollbar style */
+/* .cate-box::-webkit-scrollbar {
+  width: 6px;
+}
+.cate-box::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 3px;
+} */
+
+/* Keep card look the same */
 .book-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
+  width: 200px;                 /* fixed width */
   height: auto;
-  /* background: #1f1f1f; */
-  border: white solid 1px; 
-  /* border when dark */
+  border: white solid 1px;
   padding: 6px;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: white;
   box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
   cursor: pointer;
+  flex: 0 0 auto;               /* do not grow/shrink */
 }
+
 
 .book-card:hover {
   transform: scale(1.05);
@@ -123,12 +172,11 @@
   text-align: center;
 }
 
-
+/* Buttons inside cate-box */
 .category-buttons {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  /* gap: 12px; */
   margin: 20px 0;
 }
 
@@ -141,14 +189,100 @@
   border: none;
   background-color: #767b7b;
   border: purple solid 2px;
-
   color: white;
   border-radius: 4px;
-  cursor: pointer;
   transition: 0.3s;
 }
 
 .category-buttons button:hover {
   background-color: #767b7b;
   border: #6ec1e4 solid 2px;
+
+}
+
+/* 💡 RESPONSIVE: Hide cate-box in tablet/mobile view */
+@media (max-width: 1024px) {
+  .home-container {
+    flex-direction: column;
+    max-height: none;
+    overflow-y: unset;
+  }
+
+  .cate-box {
+    display: none; /* HIDE on tablet/mobile */
+  }
+
+  .book-grid {
+    min-width: 100%;
+    justify-content: center;
+  }
+}
+
+
+
+/* Top category bar for mobile/tablet only */
+.home .top-category-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  border: 2px double rgb(183, 16, 234);
+  padding: 6px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+
+.home .top-category-bar::-webkit-scrollbar {
+  display: none;                /* Chrome/Safari */
+}
+
+.home .top-category-bar button {
+  white-space: nowrap;
+  border: 2px solid aquamarine;
+  padding: 6px 12px;
+    background-color: #767b7b;
+
+  color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home .top-category-bar button:hover {
+  background-color: rgb(163, 35, 163);
+}
+
+
+/* Hide this bar on desktop view */
+@media (min-width: 769px) {
+ .home .top-category-bar {
+    display: none;
+  }
+}
+
+/* Extra responsiveness on very small screens */
+/* Hide top bar on desktop */
+@media (min-width: 769px) {
+  .home .top-category-bar {
+    display: none;
+  }
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  .home .top-category-bar {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+
+  .home .top-category-bar button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
 }

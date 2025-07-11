@@ -1,0 +1,5 @@
+.book-grid {
+        width: 100%;
+        height: fit-content;
+        justify-content: flex-start;
+}

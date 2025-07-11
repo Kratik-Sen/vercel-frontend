@@ -1,0 +1,94 @@
+.admin-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  /* background-color: #1c1c1c; */
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.05);
+  border: red 3px double;
+}
+
+.admin-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #dbae32;
+ 
+}
+
+.admin-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-container input,
+.admin-container select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  background-color: #fff;
+  color: black;
+}
+
+.admin-container input[type="file"] {
+  padding: 4px;
+}
+
+.admin-container button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #dbae32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-container button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.admin-container button:hover:not(:disabled) {
+  background-color: #b99028;
+}
+
+.back-home {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #6ec1e4;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.back-home:hover{
+  color: purple;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .admin-container {
+    margin: 20px;
+    padding: 16px;
+  }
+
+  .admin-container h2 {
+    font-size: 20px;
+  }
+
+  .admin-container input,
+  .admin-container select {
+    font-size: 14px;
+  }
+
+  .admin-container button {
+    font-size: 14px;
+  }
+}
