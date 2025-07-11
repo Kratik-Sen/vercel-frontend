@@ -10,7 +10,7 @@ const CategoryPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/get-files").then((res) => {
+    axios.get("https://vercel-backend-ggdk.onrender.com/get-files").then((res) => {
       const filtered = res.data.data.filter(
         (book) => book.category === category
       );

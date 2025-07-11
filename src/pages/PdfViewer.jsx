@@ -15,7 +15,7 @@ function PdfViewer() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/get-files`)
+    fetch(`https://vercel-backend-ggdk.onrender.com/get-files`)
       .then((res) => res.json())
       .then((data) => {
         const match = data.data.find((item) => item._id === id);
